@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
 
 // create the azure container registry
-resource acr 'Microsoft.ContainerRegistry/registries@2023-05-01' = {
+resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   name: toLower('${resourceGroup().name}acr')
   location: location
   sku: {
