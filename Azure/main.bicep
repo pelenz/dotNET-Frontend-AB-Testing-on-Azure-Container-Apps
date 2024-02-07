@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
 
 // create the azure container registry
-resource acr 'Microsoft.ContainerRegistry/registries@2021-09-01' = {
+resource acr 'Microsoft.ContainerRegistry/registries@2023-05-01' = {
   name: toLower('${resourceGroup().name}acr')
   location: location
   sku: {
@@ -21,7 +21,7 @@ module env 'environment.bicep' = {
 }
 
 // create the azure app configuration
-module appConfig 'app_config.bicep' ={
+module appConfig 'app_config.bicep' = {
   name: 'appConfiguration'
   params: {
     location: location
@@ -67,4 +67,3 @@ module frontend 'container_app.bicep' = {
     envVars: shared_config
   }
 }
-
